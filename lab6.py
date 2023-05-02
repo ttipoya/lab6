@@ -44,26 +44,29 @@ print('ЗАДАНИЕ 2.2')
 print('Допустим у нас есть список всех вариантов и дана задача найти максимальоне расстояние\n'
 'между элементами у которых на чётных местах стоят чётные компененты компаний, а на нечётных нечётные')
 print('--------------------')
-for i in range(len(osnov)):
-    rast += 1
-    for m in range(0,n):
-        if int(osnov[i][m][-1]) %2 == 0 and m % 2 != 0:
-            suma = suma + 1
-        if int(osnov[i][m][-1]) % 2 != 0 and m % 2 == 0:
-            suma = suma + 1
-        if suma == n:
-            if pods == 0:
-                pods+=1
-            elif pods == 1:
-                if maxi <= rast:
-                    maxi = rast
-                    maxikomb = osnov[i]
-                    minikomb = osnov[i - rast]
-                    pods = 0
-            rast = 0
-    suma = 0
-print('Максимальное расстояние:',maxi)
-print('Первая комбинация:',minikomb)
-print('Вторая комбинация:',maxikomb)
-print('--------------------')
+if n > 1:
+    for i in range(len(osnov)):
+        rast += 1
+        for m in range(0,n):
+            if int(osnov[i][m][-1]) %2 == 0 and m % 2 != 0:
+                suma = suma + 1
+            if int(osnov[i][m][-1]) % 2 != 0 and m % 2 == 0:
+                suma = suma + 1
+            if suma == n:
+                if pods == 0:
+                    pods+=1
+                elif pods == 1:
+                    if maxi <= rast:
+                        maxi = rast
+                        maxikomb = osnov[i]
+                        minikomb = osnov[i - rast]
+                        pods = 0
+                rast = 0
+        suma = 0
+    print('Максимальное расстояние:',maxi)
+    print('Первая комбинация:',minikomb)
+    print('Вторая комбинация:',maxikomb)
+    print('--------------------')
+else:
+    print("Число N слишком мало для поиска расстояния")
 
