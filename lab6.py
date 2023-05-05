@@ -9,13 +9,12 @@ print('ЧАСТЬ 1')
 print('--------------------')
 firm = []
 uslov = []
-c = []
+cena = []
 kol = 0
 suma = 0
-h = 1
 fl = 0
-maxi = 9999999999
-maxikomb = ''
+mini = 99999999
+minikomb = ''
 for i in range(1, n + 1):
     firm.append('K' + str(i))
 for i in product(firm, repeat=n):
@@ -40,8 +39,8 @@ print('Допустим фирму попросили собрать макси�
 print('--------------------')
 print('Цены на компоненты компаний:')
 for i in range(1,n+1):
-    c.append(randint(10000,20000))
-    print('K'+str(i) + '='+ str(c[i-1]),end=' ')
+    cena.append(randint(10000,20000))
+    print('K'+str(i) + '='+ str(cena[i-1]),end=' ')
 print('')
 print('--------------------')
 for i in product(firm, repeat=n):
@@ -49,13 +48,13 @@ for i in product(firm, repeat=n):
         for j in range(1,n+1):
             if int(i[m][-1]) == j and i.count(i[m]) <= 2:
                 fl += 1
-                suma = suma + c[j - 1]
+                suma = suma + cena[j - 1]
             elif i.count(i[m]) > 2:
                 suma = 0
-    if suma < maxi and suma !=0 and fl == 5:
-        maxi = suma
-        maxikomb = i
+    if suma < mini and suma !=0 and fl == 5:
+        mini = suma
+        minikomb = i
     suma= 0
     fl = 0
-print('Маскимальная цена:',maxi)
-print('Комбинация:',maxikomb)
+print('Маскимальная цена:',mini)
+print('Комбинация:',minikomb)
