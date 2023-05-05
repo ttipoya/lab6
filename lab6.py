@@ -27,9 +27,8 @@ kol = 0
 print('ЧАСТЬ 2.1')
 print('Допустим у нас есть список всех компаний и дано условие, что компоненты должны быть компаний к которым больше всего доверия')
 print('--------------------')
-for i in range(len(firm)):
-    if int(firm[i][-1]) % 2 != 0:
-        uslov.append(firm[i])
+for i in range(0,len(firm),2):
+    uslov.append(firm[i])
 for i in product(uslov, repeat=n):
     #print(i)
     kol = kol + 1
