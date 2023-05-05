@@ -14,7 +14,7 @@ kol = 0
 suma = 0
 h = 1
 fl = 0
-maxi = 0
+maxi = 9999999999
 maxikomb = ''
 for i in range(1, n + 1):
     firm.append('K' + str(i))
@@ -48,13 +48,12 @@ print('--------------------')
 for i in product(firm, repeat=n):
     for m in range(0,n):
         for j in range(1,n+1):
-            if int(i[m][-1]) == j:
-                if i.count(i[m]) <= 2:
-                    fl += 1
-                    suma = suma + c[j - 1]
-                else:
-                    suma = 0
-    if suma > maxi and suma !=0 and fl == 5:
+            if int(i[m][-1]) == j and i.count(i[m]) <= 2:
+                fl += 1
+                suma = suma + c[j - 1]
+            elif i.count(i[m]) > 2:
+                suma = 0
+    if suma < maxi and suma !=0 and fl == 5:
         maxi = suma
         maxikomb = i
     suma= 0
